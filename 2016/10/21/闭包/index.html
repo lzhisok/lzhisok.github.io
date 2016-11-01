@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="学习Javascript闭包（Closure）作者： 阮一峰日期： 2009年8月30日闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。下面就是我的学习笔记，对于Javascript初学者应该是很有用的。一、变量的作用域要理解闭包，首先必须理解Javascript特殊的变量作用域。变量的作用域无非就是两种：全局变量和局部变量。Javascri">
+<meta name="description" content="闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。下面就是我的学习笔记，对于Javascript初学者应该是很有用的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包">
 <meta property="og:url" content="http://yoursite.com/2016/10/21/闭包/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="学习Javascript闭包（Closure）作者： 阮一峰日期： 2009年8月30日闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。下面就是我的学习笔记，对于Javascript初学者应该是很有用的。一、变量的作用域要理解闭包，首先必须理解Javascript特殊的变量作用域。变量的作用域无非就是两种：全局变量和局部变量。Javascri">
-<meta property="og:updated_time" content="2016-11-01T10:50:50.080Z">
+<meta property="og:description" content="闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。下面就是我的学习笔记，对于Javascript初学者应该是很有用的。">
+<meta property="og:updated_time" content="2016-11-01T11:05:30.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="学习Javascript闭包（Closure）作者： 阮一峰日期： 2009年8月30日闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。下面就是我的学习笔记，对于Javascript初学者应该是很有用的。一、变量的作用域要理解闭包，首先必须理解Javascript特殊的变量作用域。变量的作用域无非就是两种：全局变量和局部变量。Javascri">
+<meta name="twitter:description" content="闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。下面就是我的学习笔记，对于Javascript初学者应该是很有用的。">
 
 
 
@@ -322,7 +322,8 @@
       
 
       
-        <p>学习Javascript闭包（Closure）<br>作者： 阮一峰<br>日期： 2009年8月30日<br>闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。<br>下面就是我的学习笔记，对于Javascript初学者应该是很有用的。<br>一、变量的作用域<br>要理解闭包，首先必须理解Javascript特殊的变量作用域。<br>变量的作用域无非就是两种：全局变量和局部变量。<br>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　f1(); <span class="comment">// 999</span></div></pre></td></tr></table></figure></p>
+        <p>闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。<br>下面就是我的学习笔记，对于Javascript初学者应该是很有用的。<br><a id="more"></a><br>学习Javascript闭包（Closure）<br>作者： 阮一峰<br>日期： 2009年8月30日</p>
+<p>一、变量的作用域<br>要理解闭包，首先必须理解Javascript特殊的变量作用域。<br>变量的作用域无非就是两种：全局变量和局部变量。<br>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　f1(); <span class="comment">// 999</span></div></pre></td></tr></table></figure></p>
 <p>另一方面，在函数外部自然无法读取函数内的局部变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　&#125;</div><div class="line">　　alert(n); <span class="comment">// error</span></div></pre></td></tr></table></figure></p>
 <p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　n=<span class="number">999</span>;</div><div class="line">　　&#125;</div><div class="line">　　f1();</div><div class="line">　　alert(n); <span class="comment">// 999</span></div></pre></td></tr></table></figure></p>
 <p>二、如何从外部读取局部变量？<br>出于种种原因，我们有时候需要得到函数内的局部变量。但是，前面已经说过了，正常情况下，这是办不到的，只有通过变通方法才能实现。<br>那就是在函数的内部，再定义一个函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　alert(n); <span class="comment">// 999</span></div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure></p>
