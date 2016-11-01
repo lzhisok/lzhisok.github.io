@@ -265,6 +265,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/01/CSS小知识/" itemprop="url">
+                  CSS小知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T15:52:21+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="你未必知道的CSS小知识"><a href="#你未必知道的CSS小知识" class="headerlink" title="你未必知道的CSS小知识"></a>你未必知道的CSS小知识</h2><h3 id="元素竖向的百分比设定是相对于容器的宽度，而不是高度"><a href="#元素竖向的百分比设定是相对于容器的宽度，而不是高度" class="headerlink" title="元素竖向的百分比设定是相对于容器的宽度，而不是高度"></a>元素竖向的百分比设定是相对于容器的宽度，而不是高度</h3><h3 id="让页面里的字体变清晰，变细用CSS怎么做？"><a href="#让页面里的字体变清晰，变细用CSS怎么做？" class="headerlink" title="让页面里的字体变清晰，变细用CSS怎么做？"></a>让页面里的字体变清晰，变细用CSS怎么做？</h3><p>-webkit-font-smoothing: antialiased;</p>
+<h2 id="如何修改chrome记住密码后自动填充表单的黄色背景-？"><a href="#如何修改chrome记住密码后自动填充表单的黄色背景-？" class="headerlink" title="如何修改chrome记住密码后自动填充表单的黄色背景 ？"></a>如何修改chrome记住密码后自动填充表单的黄色背景 ？</h2><p><code>bash
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: rgb(250, 255, 189); /* #FAFFBD; */
+  background-image: none;
+  color: rgb(0, 0, 0);
+}</code> bash</p>
+<h2 id="before-和-after中双冒号和单冒号-有什么区别"><a href="#before-和-after中双冒号和单冒号-有什么区别" class="headerlink" title="::before 和 :after中双冒号和单冒号 有什么区别"></a>::before 和 :after中双冒号和单冒号 有什么区别</h2><blockquote>
+<p>单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。（伪元素由双冒号和伪元素名称组成）<br>双冒号是在当前规范中引入的，用于区分伪类和伪元素。不过浏览器需要同时支持旧的已经存在的伪元素写法，<br>比如:first-line、:first-letter、:before、:after等，<br>而新的在CSS3中引入的伪元素则不允许再支持旧的单冒号的写法。</p>
+</blockquote>
+<p>想让插入的内容出现在其它内容前，使用::before，否者，使用::after；<br>在代码顺序上，::after生成的内容也比::before生成的内容靠后。<br>如果按堆栈视角，::after生成的内容会在::before生成的内容之上</p>
+<h2 id="浏览器是怎样解析CSS选择器的"><a href="#浏览器是怎样解析CSS选择器的" class="headerlink" title="浏览器是怎样解析CSS选择器的"></a>浏览器是怎样解析CSS选择器的</h2><blockquote>
+<p>样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。<br>只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者是因为不匹配而放弃该规则。</p>
+</blockquote>
+<h2 id="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"><a href="#CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？" class="headerlink" title="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"></a>CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</h2><blockquote>
+<p>当一个元素的visibility属性被设置成collapse值后，对于一般的元素，它的表现跟hidden是一样的，但如果是table相关的元素，例如table行，table group，table列，table column group，它的表现跟display:none一样，也就是说，它们占用的空间会释放。</p>
+</blockquote>
+<h2 id="position-fixed-在android下无效怎么处理？"><a href="#position-fixed-在android下无效怎么处理？" class="headerlink" title="position:fixed;在android下无效怎么处理？"></a>position:fixed;在android下无效怎么处理？</h2><blockquote>
+<p>fixed的元素是相对整个页面固定位置的，你在屏幕上滑动只是在移动这个所谓的viewport，<br>原来的网页还好好的在那，fixed的内容也没有变过位置，<br>所以说并不是iOS不支持fixed，只是fixed的元素不是相对手机屏幕固定的。</p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"></blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/22/测试/" itemprop="url">
                   整理总结的一些前端面试题
                 </a>
@@ -780,13 +893,20 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
