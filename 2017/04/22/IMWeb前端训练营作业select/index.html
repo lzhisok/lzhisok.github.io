@@ -1,0 +1,675 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="页面架构," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="##前言通过这几天的学习我又加深了对Vue的了解，例如Vue组件的作用、使用props传递数据，特殊is属性扩展原生html元素，v-bind动态绑定数据，利用自定义事件通信，单向数据流等一些内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="布局解决方案-多列布局">
+<meta property="og:url" content="http://yoursite.com/2017/04/22/IMWeb前端训练营作业select/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="##前言通过这几天的学习我又加深了对Vue的了解，例如Vue组件的作用、使用props传递数据，特殊is属性扩展原生html元素，v-bind动态绑定数据，利用自定义事件通信，单向数据流等一些内容。">
+<meta property="og:image" content="http://img.blog.csdn.net/20170421153040657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjIxNjExNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-04-22T01:55:44.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="布局解决方案-多列布局">
+<meta name="twitter:description" content="##前言通过这几天的学习我又加深了对Vue的了解，例如Vue组件的作用、使用props传递数据，特殊is属性扩展原生html元素，v-bind动态绑定数据，利用自定义事件通信，单向数据流等一些内容。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170421153040657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjIxNjExNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/22/IMWeb前端训练营作业select/"/>
+
+  <title> 布局解决方案-多列布局 | My Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                布局解决方案-多列布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-22T09:55:16+08:00" content="2017-04-22">
+              2017-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/页面架构/" itemprop="url" rel="index">
+                    <span itemprop="name">页面架构</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/22/IMWeb前端训练营作业select/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/22/IMWeb前端训练营作业select/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##前言<br>通过这几天的学习我又加深了对Vue的了解，例如Vue组件的作用、使用props传递数据，特殊is属性扩展原生html元素，v-bind动态绑定数据，利用自定义事件通信，单向数据流等一些内容。<br><a id="more"></a><br>这次的作业就是对上面知识的一个综合应用，下面就是运行效果图：</p>
+<p><img src="http://img.blog.csdn.net/20170421153040657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjIxNjExNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>下面是核心代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">	&lt;div style="float: left;"&gt;</div><div class="line">		&lt;h2&gt;选择省份下拉框&lt;/h2&gt;</div><div class="line">		&lt;custom-select btn="省份" :list="list1"&gt;&lt;/custom-select&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div style="float:left;"&gt;</div><div class="line">		&lt;h2&gt;选择市区下拉框&lt;/h2&gt;</div><div class="line">		&lt;custom-select btn="市区" :list="list2"&gt;&lt;/custom-select&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	Vue.component('custom-select', &#123;</div><div class="line">		data() &#123;</div><div class="line">			return &#123;</div><div class="line">				selectShow:false,</div><div class="line">				val:''</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line">		props:['btn','list'],</div><div class="line">		template:`&lt;section class="warp"&gt;</div><div class="line">			&lt;div class="searchIpt clearFix"&gt;</div><div class="line">				&lt;div class="clearFix"&gt;</div><div class="line">					&lt;input type="text" class="keyWord" :value="val" @click="selectShow = !selectShow" /&gt;</div><div class="line">					&lt;input type="button" :value="btn"&gt;</div><div class="line">					&lt;span&gt;&lt;/span&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">				&lt;custom-list </div><div class="line">					v-show="selectShow" </div><div class="line">					:list="list"</div><div class="line">					v-on:receive="changeValueHandle"</div><div class="line">				&gt;&lt;/custom-list&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">		&lt;/section&gt;`,</div><div class="line">		methods: &#123;</div><div class="line">			changeValueHandle(value) &#123;</div><div class="line">				this.val = value;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	Vue.component('custom-list', &#123;</div><div class="line">		props:['list'],</div><div class="line">		template:`&lt;ul class="list"&gt;</div><div class="line">					&lt;li v-for="item of list" @click="selectValueHandle(item)"&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</div><div class="line">				&lt;/ul&gt;`,</div><div class="line">		methods: &#123;</div><div class="line">			selectValueHandle(item) &#123;</div><div class="line">				this.$emit('receive', item);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">	new Vue(&#123;</div><div class="line">		el: '#app',</div><div class="line">		data: &#123;</div><div class="line">			list1:["北京","上海","广州","深圳"],</div><div class="line">			list2:["东城区","西城区","朝阳区","丰台区","海淀区","石景山区"]</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>这些知识算是对Vue的一个进阶学习吧，来谈谈我对这些知识的理解吧</p>
+<p>####组件<br>Vue的组件吸收了React里面的组件思想，而组件的设计初衷就是为了增加代码的复用性，定义了一个全局组件后，就可以在页面的任何地方都可以使用，简洁高效，非常方便。谈到组件，就不得不说组件之间的通信了，</p>
+<p>####组件的通信</p>
+<p>#####父组件到子组件<br>组件之间的通信无外非两种，父子组件的通信，和非父子组件之间的通信，这次我主要讲父子组件的通信。组件实例的作用域是孤立的。这意味着不能(也不应该)在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的props选项。props的作用就是可以把父组件上的数据传递到子组件，然后子组件根据父组件传递的不同的内容渲染成不同的效果。</p>
+<p>为什么会有props这个选项，之前谈到组件是为了增加代码的复用性，可以在页面的任何地方使用，但是有时我们在做项目的时候经常会遇到两个非常相似的组件，知识里面某处内容不一样，如果为了实现这个效果定义两个非常类似的组件就会增加代码的冗余，这是不理想的，那么有什么办法，可以让子组件里面的代码随着父组件上绑定的不同参数而实现这种效果呢？props就是这样的作用，他可以把父组件上定义的一个自定义属性绑定到子组件上，props里面的值和这个自定义属性名称一样即可。在模板中，要动态地绑定父组件的数据到子模板的props，与绑定到任何普通的HTML特性相类似，就是用 v-bind。每当父组件的数据变化时，该变化也会传导给子组件</p>
+<p>#####子组件到父组件<br>上面说到，父组件是使用 props 传递数据给子组件，但如果子组件要把数据传递回去，应该怎样做？那就是自定义事件！首先在父组件上使用v-on指令绑定自定义事件，然后在子组件中使用 $emit(eventName，参数) 触发事件，这个eventName就是自定义事件的名称，参数就是可以传递给父组件的数据。</p>
+<p>####特殊is属性扩展原生html元素<br>有时候我们需要把某个组件定义在html标签内，但是总所周知，有些html标签符合W3C标准，只可以嵌套某些指定的标签，如ul里只可以嵌套li标签，table里只可以嵌套thead、tbody，tr、td之类的标签，这个时候如果把组件嵌套在这些特俗标签里，那么在页面渲染的时候，就不会把这个组件的内容渲染在这些标签里面，而是在外面，那么这个时候怎么办呢，一种就是尽量避免在这些特殊标签嵌套组件，还有就是使用Vue提供的is属性来扩展原生html元素，用法就是is属性里面的值是组件的名称，这样就可以渲染成功了。</p>
+<p>####单向数据流<br>prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。另外，每次父组件更新时，子组件的所有 prop 都会更新为最新值。这意味着你不应该在子组件内部改变 prop 。如果你这么做了，虽然可能会达到效果，但是Vue 会在控制台给出警告。这个时候如果想修改props，有两种方法：</p>
+<ol>
+<li>定义一个局部变量，并用 prop 的值初始化它：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">props: [<span class="string">'initialCounter'</span>],</div><div class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; counter: <span class="keyword">this</span>.initialCounter &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>我们可以通过这个修改this.initialCounter这个方法来达到修改props的目的，这样就不会在子组件里修改props，也可以实现我们想要的效果</p>
+<ol>
+<li>定义一个计算属性，处理 prop 的值并返回。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">props: [<span class="string">'size'</span>],</div><div class="line">computed: &#123;</div><div class="line">  normalizedSize: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size.trim().toLowerCase()</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##后记<br>路漫漫其修远兮，吾将上下而求索。。。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/页面架构/" rel="tag">#页面架构</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/19/IMWeb前端训练营作业todos/" rel="next" title="IMWeb前端训练营作业Todolist">
+                <i class="fa fa-chevron-left"></i> IMWeb前端训练营作业Todolist
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/22/IMWeb前端训练营作业select/"
+           data-title="布局解决方案-多列布局" data-url="http://yoursite.com/2017/04/22/IMWeb前端训练营作业select/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/image/avatar.png"
+               alt="lzhisok" />
+          <p class="site-author-name" itemprop="name">lzhisok</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lzhisok" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3829683679/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzhisok</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lzhisok"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
